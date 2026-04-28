@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_04_10_201216) do
+ActiveRecord::Schema[8.1].define(version: 2026_04_28_005141) do
   create_table "appointments", force: :cascade do |t|
     t.date "appointment_date"
     t.datetime "created_at", null: false
@@ -35,6 +35,23 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_10_201216) do
     t.index ["user_id"], name: "index_pets_on_user_id"
   end
 
+  create_table "service_categories", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "name", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.integer "duration_minutes", default: 30
+    t.string "name", null: false
+    t.decimal "price", precision: 10, scale: 2
+    t.integer "service_category_id", null: false
+    t.integer "target_species", default: 0
+    t.datetime "updated_at", null: false
+    t.index ["service_category_id"], name: "index_services_on_service_category_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "email", null: false
@@ -48,4 +65,5 @@ ActiveRecord::Schema[8.1].define(version: 2026_04_10_201216) do
 
   add_foreign_key "appointments", "pets"
   add_foreign_key "pets", "users"
+  add_foreign_key "services", "service_categories"
 end
