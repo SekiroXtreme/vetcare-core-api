@@ -3,7 +3,8 @@ class PetContract < ApplicationContract
     required(:name).filled(:string)
     required(:species).filled(:string)
     required(:breed).filled(:string)
-    required(:age).filled(:integer)
+    required(:date_of_birth).filled(:integer)
+    required(:weight).filled(:float)
     required(:owner_id).filled(:integer)
   end
 end

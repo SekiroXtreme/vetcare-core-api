@@ -36,6 +36,8 @@ gem "image_processing", "~> 1.2"
 gem "blueprinter"
 gem "dry-validation"
 
+gem "bcrypt"
+
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin Ajax possible
 # gem "rack-cors"
 

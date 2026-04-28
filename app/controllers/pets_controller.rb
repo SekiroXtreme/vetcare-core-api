@@ -35,7 +35,7 @@ module Api::V1
     end
 
     def pet_params
-      params.require(:pet).permit(:name, :species, :breed, :age, :owner_id)
+      params.require(:pet).permit(:name, :species, :breed, :date_of_birth, :weight, :owner_id)
     end
   end
 end
